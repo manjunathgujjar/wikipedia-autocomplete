@@ -23,13 +23,12 @@ app.add_middleware(
 )
 
 with open(DATA_FILE, "r", encoding="utf-8") as f:
-    titles = sorted([line.strip() for line in f if line.strip()])
-titles_lower = [title.lower() for title in titles]
+    titles = sorted([line.strip() for line in f if line.strip()], key=str.lower)
 
-def get_matches(prefix, limit = 10):
+def get_matches(prefix, limit=10):
     prefix = prefix.lower()
-    start = bisect_left(titles_lower, prefix)
-    end = bisect_left(titles_lower, prefix + chr(255))
+    start = bisect_left(titles, prefix, key=str.lower)
+    end = bisect_left(titles, prefix + chr(255), key=str.lower)
     return titles[start:min(end, start + limit)]
 
 @app.get("/search")
