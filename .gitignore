@@ -1,0 +1,18 @@
+# Data file (too large for GitHub)
+autocomplete-search/backend/wikipedia-latest-titles.txt
+
+# Python
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+autocomplete-search/frontend/node_modules/
+autocomplete-search/frontend/dist/
+
+# Misc
+.env
+.DS_Store
+.claude/
